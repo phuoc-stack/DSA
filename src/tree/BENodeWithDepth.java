@@ -1,7 +1,5 @@
 package tree;
 
-import java.util.ArrayList;
-
 public class BENodeWithDepth {
 	BENode node;
 	Integer depth;
