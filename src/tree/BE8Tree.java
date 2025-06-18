@@ -35,7 +35,7 @@ public class BE8Tree {
 
 	public BENode findNodeQueue(int value) {
 		// BFS
-		Queue<BENode> queue = new LinkedList<>();
+		Queue<BENodeWithDepth> queue = new LinkedList<>();
 		queue.add(root);
 		while (!queue.isEmpty()) {
 			BENode currentNode = queue.poll();
@@ -51,21 +51,19 @@ public class BE8Tree {
 	}
 
 	public void displayTreeBFS(BENode root) {
-		int depth = 0;
 		// BFS
-		Queue<BENode> queue = new LinkedList<>();
-		queue.add(root);
+		Queue<BENodeWithDepth> queue = new LinkedList<>();
+		queue.add(new BENodeWithDepth(root, 0));
 
 		while (!queue.isEmpty()) {
 			// display node value
-			BENode currentNode = queue.poll();
-			for (int i = 0; i < depth; i++) {
+			BENodeWithDepth currentNode = queue.poll();
+			for (int i = 0; i < currentNode.depth; i++) {
 				System.out.print(" ");
 			}
-			System.out.println(currentNode.value);
-			for (BENode childNode : currentNode.children) {
-				queue.add(childNode);
-				depth++;
+			System.out.println(currentNode.node.value);
+			for (BENode childNode : currentNode.node.children) {
+				queue.add(new BENodeWithDepth(childNode, currentNode.depth + 1));
 			}
 		}
 	}
