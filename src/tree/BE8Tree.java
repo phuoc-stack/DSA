@@ -8,20 +8,13 @@ public class BE8Tree {
 	BENode root;
 
 	public BENode findNode(int value) {
-		// DFS
-		// compare root value first
-		if (root == null) {
-			return null;
-		}
-		if (root.value == value) {
-			return root;
-		}
-		return findNodeRecursive(root, value);
+		BENode currentNode = root;
+		return findNodeRecursive(currentNode, value);
 	}
 
 	public BENode findNodeRecursive(BENode currentNode, int value) {
-		if (currentNode.value == value) {
-			return currentNode;
+		if (currentNode == null) {
+			return null;
 		}
 		for (BENode childNode : currentNode.children) {
 			BENode result = findNodeRecursive(childNode, value);
@@ -29,23 +22,8 @@ public class BE8Tree {
 				return result;
 			}
 		}
-
-		return null;
-	}
-
-	public BENode findNodeQueue(int value) {
-		// BFS
-		Queue<BENodeWithDepth> queue = new LinkedList<>();
-		queue.add(root);
-		while (!queue.isEmpty()) {
-			BENode currentNode = queue.poll();
-			if (currentNode.value == value) {
-				return currentNode;
-			}
-
-			for (BENode childNode : currentNode.children) {
-				queue.add(childNode);
-			}
+		if (currentNode.value == value) {
+			return currentNode;
 		}
 		return null;
 	}
