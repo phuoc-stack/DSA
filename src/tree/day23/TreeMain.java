@@ -1,4 +1,4 @@
-package tree;
+package tree.day23;
 
 public class TreeMain {
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package tree;
+package tree.day23;
 
 import java.util.ArrayList;
 

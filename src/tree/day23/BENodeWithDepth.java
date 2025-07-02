@@ -1,4 +1,4 @@
-package tree;
+package tree.day23;
 
 public class BENodeWithDepth {
 	BENode node;
