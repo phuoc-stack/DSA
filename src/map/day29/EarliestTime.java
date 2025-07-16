@@ -20,7 +20,7 @@ public class EarliestTime {
 	
 	private static int[] backtrack(int position, boolean[] used, int[] currentTime, int[] digits) {
         if (position == 6) {
-        	return Arrays.copyOf(currentTime, 6);
+        	return currentTime;
         }
         
         for (int i = 0; i < digits.length; i++) {  // iterate by index
